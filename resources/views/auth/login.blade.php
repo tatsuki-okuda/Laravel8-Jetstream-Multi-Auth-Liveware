@@ -12,7 +12,8 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}">
+        {{-- parameterとして受け取るguardに合わせてフォームの送り先を変更する。 --}}
+        <form method="POST" action="{{ isset($guard) ? url($guard.'/login') : route('login') }}">
             @csrf
 
             <div>
