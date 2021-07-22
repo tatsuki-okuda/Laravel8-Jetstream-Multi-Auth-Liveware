@@ -20,6 +20,17 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = '/dashboard';
 
     /**
+     * ログイン後のリダイレクト先をガードによって振り分ける。
+     *
+     * @param [type] $guard
+     * @return void
+     */
+    public static function redirectTo($guard){
+        //  admin/login
+        return $guard.'/dashboard';
+    }
+
+    /**
      * The controller namespace for the application.
      *
      * When present, controller route declarations will automatically be prefixed with this namespace.

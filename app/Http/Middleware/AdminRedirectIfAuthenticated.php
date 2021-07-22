@@ -2,12 +2,15 @@
 
 namespace App\Http\Middleware;
 
+// adminようにRedirectIfAuthenticatedをコピー
+// ミドルウェアを追加した時はKernelに記載忘れなく
+
 use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class RedirectIfAuthenticated
+class AdminRedirectIfAuthenticated
 {
     /**
      * Handle an incoming request.
