@@ -13,8 +13,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Fortify\Actions\AttemptToAuthenticate;
-use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
+
+// admin用にソースコードをコピーしたものを使う。
+// ログインで使うので通常のユーザーと同じクラスを使ってしまうと通常ユーザーでログインできなくなる。
+use App\Actions\Fortify\AttemptToAuthenticate;
+// use Laravel\Fortify\Actions\AttemptToAuthenticate;
+use App\Actions\Fortify\RedirectIfTwoFactorAuthenticatable;
+// use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
+
 use Laravel\Fortify\Fortify;
 
 class FortifyServiceProvider extends ServiceProvider
