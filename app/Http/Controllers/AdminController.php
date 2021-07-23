@@ -10,7 +10,6 @@ use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Routing\Pipeline;
-
 // adminようのを使う
 use App\Actions\Fortify\AttemptToAuthenticate;
 // use Laravel\Fortify\Actions\AttemptToAuthenticate;
@@ -27,7 +26,11 @@ use App\Http\Responses\LoginResponse;
 // use Laravel\Fortify\Contracts\LoginResponse;
 
 use Laravel\Fortify\Contracts\LoginViewResponse;
-use Laravel\Fortify\Contracts\LogoutResponse;
+
+// Admin用に変更したLoginResponseを使う
+use App\Http\Responses\LogoutResponse;
+// use Laravel\Fortify\Contracts\LogoutResponse;
+
 use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\Http\Requests\LoginRequest;
