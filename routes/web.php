@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MainAdminController;
 use App\Http\Controllers\MainUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,9 @@ Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', f
 })->name('dashboard');
 Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
 
+Route::get('/admin/profile', [MainAdminController::class, 'AdminProfile'])->name('admin.profile');
+Route::get('/admin/profile/edit', [MainAdminController::class, 'AdminProfileEdit'])->name('admin.edit');
+Route::post('/admin/profile/update', [MainAdminController::class, 'AdminProfileUpdate'])->name('admin.profile.update');
 
 // users Route
 
@@ -42,3 +46,5 @@ Route::get('/user/logout', [MainUserController::class, 'Logout'])->name('user.lo
 Route::get('/user/profile', [MainUserController::class, 'UserProfile'])->name('user.profile');
 Route::get('/user/profile/edit', [MainUserController::class, 'UserProfileEdit'])->name('user.edit');
 Route::post('/user/profile/update', [MainUserController::class, 'UserProfileUpdate'])->name('user.profile.update');
+Route::get('/user/password/view', [MainUserController::class, 'UserPasswordView'])->name('user.password.view');
+Route::post('/user/password/update', [MainUserController::class, 'UserPasswordUpdate'])->name('password.update');
