@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MainAdminController;
 use App\Http\Controllers\MainUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,9 @@ Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', f
 })->name('dashboard');
 Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
 
+Route::get('/admin/profile', [MainAdminController::class, 'AdminProfile'])->name('admin.profile');
+Route::get('/admin/profile/edit', [MainAdminController::class, 'AdminProfileEdit'])->name('admin.edit');
+Route::post('/admin/profile/update', [MainAdminController::class, 'AdminProfileUpdate'])->name('admin.profile.update');
 
 // users Route
 
